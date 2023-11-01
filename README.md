@@ -39,3 +39,9 @@
   - 회원가입(문자인증 API)
   - ID/PW 찾기
   - 로그인 인터셉터
+
+ </br>
+
+
+## 5. ERD 설계
+![erd](https://github.com/seungchan5/Lease_project/assets/126455161/0fdc2ca6-686c-46a4-ab71-8d9fbdcf51f1)
