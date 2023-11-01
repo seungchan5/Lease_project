@@ -11,12 +11,11 @@
 
 #### `Back-end`
 
--   Java 11
+-   Java 11 / Gradle
 -   Spring Boot 2.7.14
--   Gradle
--   Tymeleaf 3.1.2
--   MyBatis 2.3.1
 -   Oracle 11g
+-   MyBatis 2.3.1
+-   SpringToolSuite4
 
 #### `Front-end`
 
