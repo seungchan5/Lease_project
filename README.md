@@ -8,7 +8,22 @@
 </br>
 
 ## 2. 개발도구 및 환경
-- Java, Spring Boot, Oracle SQL Developer, MyBatis, Spring Tool Suite
+
+#### `Back-end`
+
+-   Java 11
+-   Spring Boot 2.7.14
+-   Gradle
+-   Tymeleaf 3.1.2
+-   MyBatis 2.3.1
+-   Oracle 11g
+
+#### `Front-end`
+
+-   HTML5
+-   CSS3
+-   Javascript
+
 </br>
 
 ## 3. 프로젝트 주요 기능
