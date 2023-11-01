@@ -8,5 +8,20 @@
 </br>
 
 ## 2. 개발도구 및 환경
-- Java, Spring Boot, Oracle SQL Developer, MyBatis, IntelliJ, Thymeleaf
+- Java, Spring Boot, Oracle SQL Developer, MyBatis, Spring Tool Suite
 </br>
+
+## 3. 프로젝트 주요 기능
+- 로그인(회원가입, ID/PW 찾기, NAVER/KAKAO 로그인)
+- 상품등록
+- 상품 대여하기
+- 마이페이지(대여 물품 확인, 대여 승인 및 거절, 쪽지하기, 정산금액 확인, 개인 정보 변경)
+</br>
+
+## 4. 나의 역할
+- 로그인 관련 기능 구현
+  - 일반 로그인
+  - NAVER/KAKAO 로그인
+  - 회원가입(문자인증 API)
+  - ID/PW 찾기
+  - 로그인 인터셉터
