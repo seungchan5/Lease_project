@@ -9,19 +9,13 @@
 
 ## 2. 개발도구 및 환경
 
-#### `Back-end`
-
--   Java 11 / Gradle
+-   Java 11
 -   Spring Boot 2.7.14
 -   Oracle 11g
 -   MyBatis 2.3.1
--   SpringToolSuite4
-
-#### `Front-end`
-
--   HTML5
--   CSS3
--   Javascript
+-   Apache Tomcat 9.0.78
+-   SpringToolSuite 4
+-   Gradle
 
 </br>
 
