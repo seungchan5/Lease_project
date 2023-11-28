@@ -9,13 +9,15 @@
 
 ## 2. 개발도구 및 환경
 
--   Java 11
--   Spring Boot 2.7.14
+-   Java 11 / Gradle
 -   Oracle 11g
--   MyBatis 2.3.1
 -   Apache Tomcat 9.0.78
--   SpringToolSuite 4
--   Gradle
+-   Spring Boot 2.7.14
+-   MyBatis 2.3.1
+-   jQuery 3.7.1
+-   Servlet JSP
+-   SpringToolSuite4
+-   Git, Github
 
 </br>
 
