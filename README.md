@@ -28,11 +28,9 @@
 
 ## 4. 나의 역할
 - 로그인 관련 기능 구현
-  - 일반 로그인
-  - NAVER/KAKAO 로그인
-  - 회원가입(문자인증 API)
-  - ID/PW 찾기
-  - 로그인 인터셉터
+  - 로그인, 회원가입, ID/PW 찾기 `Controller : july/lease/controller/MemberController.java` : [코드확인](https://github.com/seungchan5/Lease_project/blob/main/src/main/java/july/lease/controller/MemberController.java)
+  - 문자인증 API `Controller : july/lease/controller/SmsController.java` : [코드확인](https://github.com/seungchan5/Lease_project/blob/main/src/main/java/july/lease/controller/SmsController.java)
+  - 로그인 인터셉터 `Intercepter : july/lease/intercepter/LoginIntercepter.java` : [코드확인](https://github.com/seungchan5/Lease_project/blob/main/src/main/java/july/lease/intercept/LoginInterceptor.java)
 
  </br>
 
