@@ -28,9 +28,9 @@
 
 ## 4. 나의 역할
 - 로그인 관련 기능 구현
-  - 로그인, 네이버/카카오 로그인, 회원가입, ID/PW 찾기 `Controller : july/lease/controller/MemberController.java` : [코드확인](https://github.com/seungchan5/Lease_project/blob/main/src/main/java/july/lease/controller/MemberController.java)
-  - 문자인증 API `Controller : july/lease/controller/SmsController.java` : [코드확인](https://github.com/seungchan5/Lease_project/blob/main/src/main/java/july/lease/controller/SmsController.java)
-  - 로그인 인터셉터 `Intercepter : july/lease/intercepter/LoginIntercepter.java` : [코드확인](https://github.com/seungchan5/Lease_project/blob/main/src/main/java/july/lease/intercept/LoginInterceptor.java)
+  - 로그인, 네이버/카카오 로그인, 회원가입, ID/PW 찾기 `Controller : lease/controller/MemberController.java` : [코드확인](https://github.com/seungchan5/Lease_project/blob/main/src/main/java/july/lease/controller/MemberController.java)
+  - 문자인증 API `Controller : lease/controller/SmsController.java` : [코드확인](https://github.com/seungchan5/Lease_project/blob/main/src/main/java/july/lease/controller/SmsController.java)
+  - 로그인 인터셉터 `Intercepter : lease/intercepter/LoginIntercepter.java` : [코드확인](https://github.com/seungchan5/Lease_project/blob/main/src/main/java/july/lease/intercept/LoginInterceptor.java)
 
  </br>
 
@@ -48,7 +48,7 @@
 <summary><b>LoginInterceptor</b></summary>
 <div markdown="1">
   
-`july/lease/interceptor/LoginInterceptor.java`
+`lease/interceptor/LoginInterceptor.java`
 
 ```java
 @Component
@@ -81,6 +81,58 @@ public class LoginInterceptor implements HandlerInterceptor {
 
 - 일반회원
   - LoginInterceptor에서 getRequestURI를 통해 실행했던 페이지의 경로를 받아 sendRedirect로 로그인 페이지에 전달하여 로그인하는 Member 객체에 직접 저장했습니다.
-  - MemberController에서 객체가 경로값을 갖고 있는지 구분하여 map에 담아 반환해 fetch를 통해 실행되도록 구현하였습니다. 
+  - MemberController에서 객체가 경로값을 갖고 있는지 구분하여 map에 객체가 가진 경로값을 담아 반환해 fetch를 통해 실행되도록 구현하였습니다. 
+
+<details>
+<summary><b>fetch 코드</b></summary>
+<div markdown="1">
+
+`webapp/resouces/js/Project_login.js`
+
+```javascript
+window.addEventListener('load', function(){
+    		button_login.addEventListener('click', function(e){
+    			e.preventDefault();
+    			
+    				let obj={
+        					memberEmail : document.querySelector('#userId').value,
+        					memberPassword : document.querySelector('#userPw').value,
+        					redirectURL : document.querySelector('#redirectURL').value
+        			};
+					
+    				//console.log(obj);
+        			fetchPost('/login', obj, loginCheck);
+    		})
+    	
+    		
+    		function loginCheck(map){
+    			let error = document.querySelectorAll('.errors');
+    			// 로그인 성공 -> list로 이동
+    			if(map.result == "success"){
+    				location.href= map.url;
+    			} else{
+    				// 실패 -> 메세지 출력
+    				error[0].textContent='이메일과 비밀번호를 확인해주세요';
+    			}
+    		}
+    	});
+    	function fetchPost(url, obj, callback){
+			try{
+				// url 요청
+				fetch(url, {method : 'post', headers : {'Content-Type' : 'application/json'}, body : JSON.stringify(obj)})
+					// 요청결과 json 문자열을 javascript 객체로 반환
+					.then(response => response.json())
+					// 콜백함수 실행
+					.then(map => callback(map));
+			} catch(e) {
+				console.log('fetchPost', e)
+			}
+		};
+
+```
+</div>
+</details>
+
 - 네이버/카카오 로그인 회원
-  - 
+  - 일반회원과 비슷한 과정을 거치지만 sendRedirect로 로그인 페이지에 전달한 경로를 네이버/카카오 로그인 API에서 접근 권한을 얻는 과정 중 state에 값으로 담았습니다.
+  - MemberController에서 state의 경로값을 구분하여 Controller에서 경로를 반환하도록 구현하였습니다. 
